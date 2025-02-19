@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+		<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Hello, World!</title>
+		
+		<style>
+		 *{
+		 		padding:0;
+		 		margin:0;
+		 		box-sizing:border-box;
+		 		
+		 		border-radius:5px;
+		 }
+		body{
+				padding:10px;
+				border:none;
+		} 
+		#main{
+				width:95%;
+				height:auto;
+				margin:0 auto;
+				padding:4px;
+				box-shadow:0 0 10px red;
+		}
+		img{
+				width:100%;
+				height:250px;
+				/*filter:hue-rotate(200deg);*/
+				border:px solid red;
+				box-shadow:0 0 2px red;
+		}
+		/*img {
+  filter: blur(5px) brightness(120%) contrast(90%);
+}*/
+		nav{
+				padding:5px;
+				display:y-flex;
+				justify-content:center;
+				border:px solid red;
+					box-shadow:0 0 2px red;
+				& div{
+						margin:3px;
+						padding:3px;
+						border:px solid red;
+							box-shadow:0 0 2px red;
+				}
+				
+		}
+		p{
+						border:none;
+				}
+		input{
+				width:250px;
+		}
+		
+		@media(min-width:900px){
+				*{
+						border-radius:20px;
+						padding:20px;
+						
+				}
+				
+				img{
+						height:700px;
+						padding:0px;
+				}		
+				nav{
+				& div{
+						margin:0 0 0 0px;
+				}}
+				p{
+						border:none;
+						font-size:25px;
+				}
+		input{
+				width:400px;
+				height:30px;
+				margin:0 0 0 10px;
+		}
+		}
+		</style>
+		
+</head>
+<body>
+		
+		<div id="main"><img src="a.jpg" id="pic">
+				<nav>
+						<div><p>Brigthness</p><input type="range" name="range" max="200" id="brightness" oninput="bright()"></div>
+						<div><p>saturate</p><input type="range" name="range" max="1000" id="saturate" oninput="saturate()"></div>
+  	<div><p>Contrast</p><input type="range" name="range" max="200" id="contrast" oninput="cont()"></div>
+ 	<div><p>Hue</p><input type="range" name="range" max="200" id="hue" oninput="hue()"></div>
+ 	<div><p>Sepia</p><input type="range" name="range" max="200" id="sepia" oninput="sepia()"></div>
+
+				</nav>
+				
+		</div>
+
+		
+		<script>
+		function bright(){
+				var x = document.getElementById("brightness").value;
+				var pic = document.getElementById("pic");
+				pic.style.filter="brightness("+x+"%)";
+		}
+		
+		function cont(){
+				var x = document.getElementById("contrast").value;
+				var pic = document.getElementById("pic");
+				pic.style.filter="contrast("+x+"%)";
+		}
+		
+		function saturate(){
+				var x = document.getElementById("saturate").value;
+				var pic = document.getElementById("pic");
+				pic.style.filter="saturate("+x+"%)";
+		}
+		function hue(){
+				var x = document.getElementById("hue").value;
+				var pic = document.getElementById("pic");
+				pic.style.filter="hue-rotate("+x+"deg"+")";
+		}
+		function sepia(){
+				var x = document.getElementById("sepia").value;
+				var pic = document.getElementById("pic");
+				pic.style.filter="sepia("+x+"%"+")";
+		}
+				
+		</script>
+</body>
+</html>
