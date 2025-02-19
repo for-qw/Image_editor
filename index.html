@@ -1,133 +1,190 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-		<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Hello, World!</title>
-		
-		<style>
-		 *{
-		 		padding:0;
-		 		margin:0;
-		 		box-sizing:border-box;
-		 		
-		 		border-radius:5px;
-		 }
-		body{
-				padding:10px;
-				border:none;
-		} 
-		#main{
-				width:95%;
-				height:auto;
-				margin:0 auto;
-				padding:4px;
-				box-shadow:0 0 10px red;
-		}
-		img{
-				width:100%;
-				height:250px;
-				/*filter:hue-rotate(200deg);*/
-				border:px solid red;
-				box-shadow:0 0 2px red;
-		}
-		/*img {
-  filter: blur(5px) brightness(120%) contrast(90%);
-}*/
-		nav{
-				padding:5px;
-				display:y-flex;
-				justify-content:center;
-				border:px solid red;
-					box-shadow:0 0 2px red;
-				& div{
-						margin:3px;
-						padding:3px;
-						border:px solid red;
-							box-shadow:0 0 2px red;
-				}
-				
-		}
-		p{
-						border:none;
-				}
-		input{
-				width:250px;
-		}
-		
-		@media(min-width:900px){
-				*{
-						border-radius:20px;
-						padding:20px;
-						
-				}
-				
-				img{
-						height:700px;
-						padding:0px;
-				}		
-				nav{
-				& div{
-						margin:0 0 0 0px;
-				}}
-				p{
-						border:none;
-						font-size:25px;
-				}
-		input{
-				width:400px;
-				height:30px;
-				margin:0 0 0 10px;
-		}
-		}
-		</style>
-		
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Box</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f5f5f5;
+            padding: 10px;
+        }
+
+        form {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 15px gray;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .image-box {
+            width: 95%;
+            height: auto; /* फिक्स्ड हाइट */
+           
+            left:0;
+            right:0;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+            position:fixed;
+            margin:0 auto;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        #proporty {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 300px;
+        }
+
+        #proporty div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            box-shadow: 0 0 5px gray;
+            border-radius: 10px;
+            background: #fff;
+            width:70%;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input[type="range"] {
+            width: 90%;
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
-		
-		<div id="main"><img src="a.jpg" id="pic">
-				<nav>
-						<div><p>Brigthness</p><input type="range" name="range" max="200" id="brightness" oninput="bright()"></div>
-						<div><p>saturate</p><input type="range" name="range" max="1000" id="saturate" oninput="saturate()"></div>
-  	<div><p>Contrast</p><input type="range" name="range" max="200" id="contrast" oninput="cont()"></div>
- 	<div><p>Hue</p><input type="range" name="range" max="200" id="hue" oninput="hue()"></div>
- 	<div><p>Sepia</p><input type="range" name="range" max="200" id="sepia" oninput="sepia()"></div>
 
-				</nav>
-				
-		</div>
+<form>
+    <nav class="image-box">
+        <img src="a.jpg" alt="a" id="pic">
+    </nav>
+    
 
-		
-		<script>
-		function bright(){
-				var x = document.getElementById("brightness").value;
-				var pic = document.getElementById("pic");
-				pic.style.filter="brightness("+x+"%)";
-		}
-		
-		function cont(){
-				var x = document.getElementById("contrast").value;
-				var pic = document.getElementById("pic");
-				pic.style.filter="contrast("+x+"%)";
-		}
-		
-		function saturate(){
-				var x = document.getElementById("saturate").value;
-				var pic = document.getElementById("pic");
-				pic.style.filter="saturate("+x+"%)";
-		}
-		function hue(){
-				var x = document.getElementById("hue").value;
-				var pic = document.getElementById("pic");
-				pic.style.filter="hue-rotate("+x+"deg"+")";
-		}
-		function sepia(){
-				var x = document.getElementById("sepia").value;
-				var pic = document.getElementById("pic");
-				pic.style.filter="sepia("+x+"%"+")";
-		}
-				
-		</script>
+    <div id="proporty">
+        <div>
+            <p>Brightness</p>
+            <input type="range" min="0" max="200" value="100" id="bright" oninput="filter()">
+        </div>
+        <div>
+            <p>Saturate</p>
+            <input type="range" min="0" max="200" value="100" id="saturate" oninput="filter()">
+        </div>
+        <div>
+            <p>Contrast</p>
+            <input type="range" min="0" max="200" value="100" id="contrast" oninput="filter()">
+        </div>
+        <div>
+            <p>Grayscale</p>
+            <input type="range" min="0" max="100" value="0" id="grayscale" oninput="filter()">
+        </div>
+        <div>
+            <p>Invert</p>
+            <input type="range" min="0" max="100" value="0" id="invert" oninput="filter()">
+        </div>
+        <div>
+            <p>Opacity</p>
+            <input type="range" min="0" max="100" value="100" id="opacity" oninput="filter()">
+        </div>
+        <div>
+            <p>Sepia</p>
+            <input type="range" min="0" max="100" value="0" id="sepia" oninput="filter()">
+        </div>
+        <div>
+            <p>Blur</p>
+            <input type="range" min="0" max="10" value="0" id="blur" oninput="filter()">
+        </div>
+        <div>
+            <p>Hue-Rotate</p>
+            <input type="range" min="0" max="360" value="0" id="hue" oninput="filter()">
+        </div>
+        <div>
+            <button id="reset" type="button" onclick="resetFilter()">Reset</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    function filter() {
+        var a = document.getElementById("bright").value;
+        var b = document.getElementById("saturate").value;
+        var c = document.getElementById("contrast").value;
+        var d = document.getElementById("grayscale").value;
+        var f = document.getElementById("invert").value;
+        var g = document.getElementById("opacity").value;
+        var h = document.getElementById("sepia").value;
+        var i = document.getElementById("blur").value;
+        var j = document.getElementById("hue").value;
+
+        document.getElementById("pic").style.filter = 
+            "brightness(" + a + "%) " + 
+            "saturate(" + b + "%) " + 
+            "contrast(" + c + "%) " + 
+            "grayscale(" + d + "%) " + 
+            "invert(" + f + "%) " + 
+            "opacity(" + g + "%) " + 
+            "sepia(" + h + "%) " + 
+            "blur(" + i + "px) " + 
+            "hue-rotate(" + j + "deg)";
+    }
+
+    function resetFilter() {
+        document.getElementById("bright").value = 100;
+        document.getElementById("saturate").value = 100;
+        document.getElementById("contrast").value = 100;
+        document.getElementById("grayscale").value = 0;
+        document.getElementById("invert").value = 0;
+        document.getElementById("opacity").value = 100;
+        document.getElementById("sepia").value = 0;
+        document.getElementById("blur").value = 0;
+        document.getElementById("hue").value = 0;
+
+        filter();
+    }
+</script>
+
 </body>
 </html>
